@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questão 4</title>
+</head>
+<body>
+
+    <div id="app"></div>
+    
+    <script>
+        //O array abaixo é o array do exercício dado:
+        var nomes = ['Diego', 'Gabriel', 'Lucas'];
+       
+        
+        var appElement = document.querySelector('#app');
+        var inputElement = document.createElement('input');
+        inputElement.setAttribute('type', 'text');
+        inputElement.setAttribute('name', 'nome');        
+        var btnElement = document.createElement('button');
+        var textBtn = document.createTextNode('Adicionar');
+        btnElement.appendChild(textBtn);
+        appElement.appendChild(inputElement);
+        appElement.appendChild(btnElement);
+
+        var ulElement = document.createElement('ul');
+        ulElement.setAttribute('id', 'lista');       
+        appElement.appendChild(ulElement);
+
+        var count = 0;
+        
+        btnElement.onclick = function(){
+            adicionar();
+            inputElement.value = '';
+        }
+        
+        
+
+        function adicionar(){
+            var input = document.querySelector('input[name=nome]');
+            var nome = input.value;
+            if(nome != '' && isNaN(nome)){
+                nomes.push(nome);
+                exibeLista(nome);
+                               
+            }else{
+                alert('Valor inválido!');
+            }
+                
+                
+            
+                        
+        }
+      
+        
+        function exibeLista(nome){
+            
+            count++;
+            if(count > 1){
+                var liElement = document.createElement('li');
+                liElement.setAttribute('class', '.itens');
+                var index = nomes.lastIndexOf(nome);
+                var text = document.createTextNode(nomes[index]);
+                liElement.appendChild(text);
+                ulElement.appendChild(liElement);
+             
+            }else{
+                for(var i = 0; i < nomes.length; ++i){
+                    var liElement = document.createElement('li');
+                    liElement.setAttribute('class', '.itens');
+                    var text = document.createTextNode(nomes[i]);
+                    liElement.appendChild(text);
+                    ulElement.appendChild(liElement);
+               }
+            }
+
+            console.log(count);
+               
+        }
+
+       
+       
+
+        
+
+       
+     
+    </script>
+</body>
+</html>

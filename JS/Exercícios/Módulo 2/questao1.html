@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questão 1</title>
+</head>
+<body>
+
+    <div id="app"></div>
+    
+    <script>
+        
+        var appElement = document.querySelector('#app');
+        var btnElement = document.createElement('button');
+        btnElement.setAttribute('id', 'button');
+        var text = document.createTextNode('Exibir Quadrado');
+        btnElement.appendChild(text);
+        appElement.appendChild(btnElement);     
+        
+        
+
+        btnElement.onclick = function(){
+            criarBox();                    
+           
+        }
+
+      
+        //Faz as operações com a box e dps muda pra box2.
+        //Ao chamar a função novamente, ele cria um quadrado diferente pois box != box2
+        function criarBox(){
+            var divElement = document.createElement('div');
+            //Classe = box
+            divElement.setAttribute('class', 'box');
+            appElement.appendChild(divElement);
+            var boxElement = document.querySelector('.box');
+            boxElement.style.marginTop = '10px'
+            boxElement.style.width = '100px';
+            boxElement.style.height = '100px';
+            boxElement.style.backgroundColor = '#f00';
+            //Classe = box2
+            divElement.setAttribute('class', 'box2');
+        }
+
+        
+        
+
+        
+       
+
+
+     
+     
+    </script>
+</body>
+</html>
