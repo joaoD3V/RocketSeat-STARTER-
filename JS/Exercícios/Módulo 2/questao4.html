@@ -41,6 +41,7 @@
         function adicionar(){
             var input = document.querySelector('input[name=nome]');
             var nome = input.value;
+            //Tratamento de valores inválidos
             if(nome != '' && isNaN(nome)){
                 nomes.push(nome);
                 exibeLista(nome);
